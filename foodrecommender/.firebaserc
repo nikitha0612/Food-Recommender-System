@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "foodrecommender-34753": {
+      "hosting": {
+        "foodrecommender": [
+          "foodrecommender-34753"
+        ]
+      }
+    }
+  }
+}
