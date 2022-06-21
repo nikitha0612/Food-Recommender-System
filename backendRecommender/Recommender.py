@@ -1,0 +1,60 @@
+import pandas as pd
+
+from collections import defaultdict
+from surprise import Dataset
+from surprise.model_selection import cross_validate
+from surprise import Reader
+from surprise import SVD
+
+import databaseCon
+
+con = databaseCon.Database()
+loadedData = con.selectAll()
+
+userGroupId = loadedData[0]
+ingredientId = loadedData[1]
+ratings = loadedData[2]
+
+def do_Predict():
+    ratings_dict = {'userID': userGroupId,
+                    'itemID': ingredientId,
+                    'rating': ratings}
+
+    df = pd.DataFrame(ratings_dict)
+    reader = Reader(rating_scale=(1, 4))
+    data = Dataset.load_from_df(df[['userID', 'itemID', 'rating']], reader)
+    trainset = data.build_full_trainset()
+    algo = SVD()
+    algo.fit(trainset)
+    testset = trainset.build_anti_testset()
+    predictions = algo.test(testset)
+    print(predictions)
+    cross_validate(algo, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
+    return get_top_n(predictions)
+
+def get_top_n(predictions, n = 20):
+    top_n = defaultdict(list)
+    for uid, iid, true_r, est, _ in predictions:
+        top_n[uid].append((iid, est))
+
+    for uid, user_ratings in top_n.items():
+        user_ratings.sort(key=lambda x: x[1], reverse=True)
+        #print(user_ratings)
+        top_n[uid] = user_ratings[:n+1]
+        print(top_n)
+
+    return top_n
+
+
+def getRecommendedItems(uid):
+    itemInfo = []
+    recommendations = do_Predict()
+    for users in recommendations.items():
+        if users[0] == uid:
+            for items in users[1]:
+                itemInfo.append(con.getNames(items[0]))
+            return (itemInfo)
+
+#print(getRecommendedItems(15))
+
+
