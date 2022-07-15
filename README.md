@@ -5,6 +5,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ![Picture1](https://user-images.githubusercontent.com/60382626/179172852-e9221e7d-7275-4b49-b4f9-03fa5395614a.png)
 
+
+![Picture2](https://user-images.githubusercontent.com/60382626/179172958-f71643fc-9e2c-47d8-94bd-c5640869f3a4.png)
+
+![Picture3](https://user-images.githubusercontent.com/60382626/179172983-83f3f236-7059-4c5b-bd8a-b6bebb2bebcf.png)
+
+
+![Picture4](https://user-images.githubusercontent.com/60382626/179173027-3a29b129-7ace-4632-8882-97f857628a16.png
+
 • Designed a web-application that recommends food items to the users based on the ratings. 
 
 • Implemented using Angular Framework with PostgreSQL as database and used Flask for middleware. 
