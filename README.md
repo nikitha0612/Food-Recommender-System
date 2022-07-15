@@ -11,7 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ![Picture3](https://user-images.githubusercontent.com/60382626/179172983-83f3f236-7059-4c5b-bd8a-b6bebb2bebcf.png)
 
 
-![Picture4](https://user-images.githubusercontent.com/60382626/179173027-3a29b129-7ace-4632-8882-97f857628a16.png
+![Picture4](https://user-images.githubusercontent.com/60382626/179173027-3a29b129-7ace-4632-8882-97f857628a16.png)
 
 • Designed a web-application that recommends food items to the users based on the ratings. 
 
