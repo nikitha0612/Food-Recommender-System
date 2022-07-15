@@ -3,7 +3,9 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
 
 • Designed a web-application that recommends food items to the users based on the ratings. 
+
 • Implemented using Angular Framework with PostgreSQL as database and used Flask for middleware. 
+
 • Collaborative filtering is used for recommendations to the users (based on food ratings) and firebase is used for the users authentication.
 
 ## Development server
